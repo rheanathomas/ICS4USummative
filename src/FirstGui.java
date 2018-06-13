@@ -1,7 +1,8 @@
-//import java.awt.Color;
+//import java.awt.Color
 //import java.awt.Container;
 
 import java.awt.*;
+
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
@@ -38,17 +40,20 @@ import java.util.Scanner;
 //have a class for gui things that extends JFrame
 //have a class for the first gui that will extends Account
 public class FirstGui extends JFrame{
+	//see why login isnt working
+	 boolean found;
 	JLabel lblImage;
 	String username,password,user1,pswrd1;
 	private static Scanner x;
 	JFrame firstFrame;
 	public static final String FILENAME = "C:\\Users\\Rhea\\filename.txt";
-	JPanel panLog,panFirst;
+	JPanel panFirst,  panLog;
 	JLabel lblTitle,lblUser,lblPswrd,lblUserLogin,lblPswrdLogin;
 	JButton btnSign, btnLog,btnAcc, btnCheck, btnCreate, btnAccount;
 	JTextField txtUser,txtPswrd, txtUserLogin,txtPswrdLogin;
 	JLayeredPane firstPane = getLayeredPane();
 	JLayeredPane panSign = getLayeredPane();
+//	JLayeredPane panLog = getLayeredPane();
 	Color mybrwn = new Color(234,207,169);
 	Color mygrey = new Color(94,74,63);
 	Color myyellow = new Color(255,254,138);
@@ -164,27 +169,41 @@ public class FirstGui extends JFrame{
 				}
 				 
 			 });	 
-				
+		   }
 			//	username = txtUser.getText();
 		
 			if(btnLog ==(JButton) e.getSource()){
+					JLabel lblLog = new JLabel("Log In");
+					lblLog.setFont(new Font("Impact", Font.PLAIN, 36));
+					lblLog.setForeground(Color.white);
+					lblLog.setBounds(175,0,300,100);
 				    btnSign.setVisible(false);
+				    panFirst.setVisible(false);
 				    panLog = new JPanel();
-				    panLog.setLayout(new BoxLayout(panLog, BoxLayout.PAGE_AXIS));
-				    lblUserLogin = new JLabel("Enter your username");
-					txtUserLogin = new JTextField();	
-					lblPswrdLogin = new JLabel("Enter your password");
+				    panLog.setBounds(0, 0, 450, 650);
+				    panLog.setLayout(null);
+				    lblUserLogin = new JLabel("Enter your username: ");
+				    lblUserLogin.setBounds(165,100,300,50);
+					txtUserLogin = new JTextField();
+					txtUserLogin.setBounds(80,140,300,50);
+					lblPswrdLogin = new JLabel("Enter your password: ");
+					lblPswrdLogin.setBounds(165,240,300,50);
 					txtPswrdLogin = new JTextField();
+					txtPswrdLogin.setBounds(80,280,300,50);
 					btnCheck = new JButton("Log In");
+					btnCheck.setBounds(160,380,115,50);
+					panLog.add(lblLog);
 					panLog.add(lblUserLogin);
 					panLog.add(txtUserLogin);
 					panLog.add(lblPswrdLogin);
 					panLog.add(txtPswrdLogin);
 					panLog.add(btnCheck);
-				
-				    firstFrame.add(panLog);
+			     	panLog.setOpaque(false);
+					//firstFrame.setVisible(false);
 				    panLog.setVisible(true);
-				    firstFrame.remove(firstPane);
+				    firstPane.add(panLog, new Integer(2));
+				
+					
 				    
 				    btnCheck.addActionListener(new ActionListener(){
 				    	@Override
@@ -192,8 +211,15 @@ public class FirstGui extends JFrame{
 							username = txtUserLogin.getText();
 							password = txtPswrdLogin.getText();
 				    		VerifyLogin(user1,pswrd1,FILENAME);
+				    		if(found==true){
+				    			Account account = new Account();
+				    		}
+				    		else{
+				    		JOptionPane.showMessageDialog(null,"Sorry, the username/password is incorrect");
+				    		
+				    		}
 						}
-				    });}}
+				    });}
 			}
 		  
 		 public void save(){
@@ -234,8 +260,8 @@ public class FirstGui extends JFrame{
 
 			}
 			
-		  public void VerifyLogin(String username, String password, String filepath){
-			  boolean found = false;
+		  public boolean VerifyLogin(String username, String password, String filepath){
+			  found = false;
 				String tempUsername = "";
 				String tempPassword = "";
 				
@@ -264,6 +290,7 @@ public class FirstGui extends JFrame{
 		catch(Exception e){
 				System.out.println("error");
 			}
+				return found;
 		}
 		  
 	}

@@ -128,7 +128,7 @@ JTextField txtAnswer;
 				// TODO Auto-generated method stub
 				ToDo todo = new ToDo();
 				todo.createGui();
-				todo.Actions();
+				//todo.Actions();
 				accFrame.dispose();
 			}
 			  
