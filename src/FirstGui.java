@@ -21,27 +21,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-//this overwrites the file. how do you simply add another line to the file????﻿
-/*That is a really good question. It seems like there should be a simple solution. One way to do it is to
- *  create a method that reads the file and adds the contents to an array list line by line. Each line 
- *  would be an item in the array list. Then you would have to add items to the array list and at the
- *   end of the program add the array list with the new additions to the list. So, it will overwrite the
- *    file, but still contain all of the elements with the newly added elements as well. That is not a 
- *    very simple solution, but it is the only one I am aware of.﻿
-*/
-
-//make visuals,
-//try to put everything in methods for encapsulation
-//make the stre
-//debug (username, password displaying, why todolist wont update unless its ...
-//comment
-//check login
 
 //have a class for gui things that extends JFrame
 //have a class for the first gui that will extends Account
 public class FirstGui extends JFrame{
 	//see why loging isnt working
-	 boolean found;
+	//declare variables
+     boolean found;
 	JLabel lblImage;
 	String username,password,user1,pswrd1;
 	private static Scanner x;
@@ -65,10 +51,13 @@ public class FirstGui extends JFrame{
 		firstPane.setPreferredSize(new Dimension(550, 400));
 		firstFrame.setResizable(false);
 		firstFrame.setLocation((int) getToolkit().getDefaultToolkit().getScreenSize().getWidth()/2 - firstFrame.getWidth()/2,(int) getToolkit().getDefaultToolkit().getScreenSize().getHeight()/2 - firstFrame.getHeight()/2);
+		this.found= false;
 		//Color myBrown = new Color(201,176,136);
 	}	
-	public void CreateGui(){	
-	btnSign = new JButton("Sign Up");
+	
+	public void createGui(){	
+		//initiaize buttons
+	     btnSign = new JButton("Sign Up");
 		 btnSign.setBounds(130,175, 170, 60);
 		 btnSign.setForeground(Color.WHITE);
 		 btnSign.setBackground(mybrwn);

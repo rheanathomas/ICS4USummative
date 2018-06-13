@@ -24,16 +24,12 @@ public class Store extends Account implements ActionListener{
 	 Scanner y;
 	 boolean duplicate;
 	 JLabel lblcode, lblDisplayCode;
-	public static final String CODEFILENAME = "C:\\Users\\Rhea\\filena.txt";
-	//String[] arrCode = new String[6];
-	//JLabel lblCode;
-	//JTextField txtCode;
-	JFrame storeFrame;
-	JPanel panStore;
-	JLabel lblTest;
-	JButton btnCode,btnBackground,btnAvatar;
-	
-	
+	 public static final String CODEFILENAME = "C:\\Users\\Rhea\\filena.txt";
+	 JFrame storeFrame;
+	 JPanel panStore;
+	 JLabel lblTest;
+	 JButton btnCode,btnBackground,btnAvatar;
+	 
 	public Store(){
 		storeFrame = new JFrame();
 		storeFrame.setSize(450,650);
@@ -179,38 +175,7 @@ public class Store extends Account implements ActionListener{
 			System.out.println("error");
 		}
 			return duplicate;
+	}		
 	}
-	  
-
-		//JFrame third = new JFrame();
-		//use array for photos/avatars
-		//buy background images
-		//if(btnCode == (JButton)e.getSource()){
-			//btnCode.setVisible(false);
-			//Code();
-		//lblTest = new JLabel("Holaaa");
-	/*	
-		panStore = new JPanel();
-		panStore.setSize(400,400);
-		panStore.add(lblTest);
-		panAccount.setVisible(false);
-	    panStore.setVisible(true);
-		second.add(panStore);
-	*/	
-
-
-
-	
-	public void creategui(){
-lblTest = new JLabel("Holaaa");
-			
-			panStore = new JPanel();
-			panStore.setSize(400,400);
-			panStore.add(lblTest);
-			panAccount.setVisible(false);
-		    panStore.setVisible(true);
-			accFrame.add(panStore);	
-			
-	}}
 		
 

@@ -102,11 +102,11 @@ public class ToDo extends Account{
 		todoFrame.add(lpanTodo);
 		todoFrame.setVisible(true);
 		
-		Actions();
+		actions();
 		
 	}
 		
-	public void Actions(){
+	public void actions(){
 	btn1.addActionListener(new ActionListener(){
 
 			@Override
