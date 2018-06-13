@@ -42,10 +42,6 @@ JTextField txtAnswer;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		//accFrame = new JFrame();
-		//accFrame.setSize(450,650);
-		//panAccount = new JPanel();
-		//panAccount.setSize(600,600);	
 		JLabel lblImage2 = new JLabel();
 		ImageIcon img2g12 = new ImageIcon("C:\\Users\\Rhea\\summative\\account.png");
 		Image image2 = img2g12.getImage(); // transform it 
@@ -58,10 +54,7 @@ JTextField txtAnswer;
 		JLayeredPane pane3 = new JLayeredPane();
 		
 		accFrame.setLocation((int) getToolkit().getDefaultToolkit().getScreenSize().getWidth()/2 - accFrame.getWidth()/2,(int) getToolkit().getDefaultToolkit().getScreenSize().getHeight()/2 - accFrame.getHeight()/2);
-	//	panAccount = new JPanel();
-		//panAccount.setSize(600,600);	
 		panAccount.setLayout(null);
-		//initialize variables
 		lblAccount = new JLabel("Your Account");
 		lblAccount.setBounds(125,50,400,50);
 		lblAccount.setFont(new Font("Impact", Font.PLAIN, 35));
@@ -78,9 +71,6 @@ JTextField txtAnswer;
 		points = 0;
 		txtAnswer = new JTextField();
 		txtAnswer.setBounds(0,300,300,50);
-		
-	//	txtAnswer.setVisible(false);
-
 		btnDone = new JButton("Done");
 		btnDone.setBounds(70,375,200,20);
 		btnDone.setVisible(false);
@@ -96,36 +86,34 @@ JTextField txtAnswer;
 		lblQuestion = new JLabel ("What is you main focus for today?");
 		lblQuestion.setBounds(80,300,400,50);
 		lblQuestion.setFont(new Font("Serif", Font.BOLD,20));
-	//	lblQuestion.setBackground(Color.LIGHT_GRAY);
 		lblQuestion.setForeground(Color.WHITE);
 		lblQuestion.setBackground(Color.DARK_GRAY);
-		   btnQuestion = new JButton("Answer question for a point"); 
-		   btnQuestion.setBackground(Color.white);
-		   btnQuestion.setForeground(Color.LIGHT_GRAY.brighter());
-			txtAnswer.setVisible(false);
-			btnDone.setVisible(false);
-			btnQuestion.setBounds(125,350,200,20);
-			btnQuestion.setFont(new Font("Serif", Font.PLAIN, 10));
-			btnQuestion.setForeground(Color.gray);
+		btnQuestion = new JButton("Answer question for a point"); 
+		btnQuestion.setBackground(Color.white);
+		btnQuestion.setForeground(Color.LIGHT_GRAY.brighter());
+		txtAnswer.setVisible(false);
+		btnDone.setVisible(false);
+		btnQuestion.setBounds(125,350,200,20);
+		btnQuestion.setFont(new Font("Serif", Font.PLAIN, 10));
+		btnQuestion.setForeground(Color.gray);
 		panAccount.add(btnQuestion);
 		panAccount.add(btnStore);
 		panAccount.add(btnCode);
 		panAccount.add(txtAnswer);
 		panAccount.add(btnDone);
 		
-		  btnStore.addActionListener(new ActionListener(){
+		btnStore.addActionListener(new ActionListener(){
 
 				@Override
-				public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
 					Store store = new Store();
 					store.createGui();
 					store.ButtonActions();
 				}
 				  
-			  });
-		  btnToDo.addActionListener(new ActionListener(){
-
+			 });
+	    btnToDo.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -135,10 +123,9 @@ JTextField txtAnswer;
 				accFrame.dispose();
 			}
 			  
-		  });
+		 });
 	
-		  btnStore.addActionListener(new ActionListener(){
-
+		 btnStore.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -146,50 +133,34 @@ JTextField txtAnswer;
 				
 			}
 			  
-		  });
-		   btnQuestion.addActionListener(new ActionListener(){
-
+		 });
+		btnQuestion.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-			btnQuestion.setVisible(false);
-			lblQuestion.setVisible(false);
-			txtAnswer.setVisible(true);
-			btnDone.setVisible(true);
+				btnQuestion.setVisible(false);
+				lblQuestion.setVisible(false);
+				txtAnswer.setVisible(true);
+				btnDone.setVisible(true);
 		
-			btnDone.addActionListener(new ActionListener(){
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					//add JLayeredPanel for btnQuestion, txtAnswer and lblFocus
-					//do something to check what the person inputed (e.g. if they inputted something)
-					lblFocus = new JLabel("Focus of the day: " + txtAnswer.getText());
-					lblFocus.setBounds(100,300,400,50);
-					lblFocus.setVisible(true);
-					panAccount.add(lblFocus);
-					txtAnswer.setVisible(false);
-					btnDone.setVisible(false);
-					gainPoints(1);			
-				}
-			
-			
-			}   );
-		    
-		
-			
-		
-
-				//@Override
-				//public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
+		btnDone.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//add JLayeredPanel for btnQuestion, txtAnswer and lblFocus
+				//do something to check what the person inputed (e.g. if they inputted something)
+				lblFocus = new JLabel("Focus of the day: " + txtAnswer.getText());
+				lblFocus.setBounds(100,300,400,50);
+				lblFocus.setVisible(true);
+				panAccount.add(lblFocus);
+				txtAnswer.setVisible(false);
+				btnDone.setVisible(false);
+				gainPoints(1);			
+				}		
+			}  
+		);
                  					
 				};
 		   });
 		   
-		  
-		  // Store store = new Store();
-		
-		   
-			//}});
 		    panAccount.setOpaque(false);
 		    panAccount.add(lblAccount);
 			panAccount.add(lblDisplayUser);
