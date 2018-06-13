@@ -32,7 +32,7 @@ JButton btnQuestion, btnDone, btnToDo, btnStore,btnCode;
 JTextField txtAnswer;
 
 //String username,password;
-
+//do i have overriding?
 	public Account(){
 		//firstFrame.dispose();
 		accFrame = new JFrame();
@@ -87,10 +87,12 @@ JTextField txtAnswer;
 		btnToDo = new JButton("To Do");
 		btnToDo.setBounds(25,450,100,50);
 		btnToDo.setVisible(true);
+		btnCode = new JButton("Input Code for points");
+		btnCode.setBounds(170,450,110,50);
+		btnCode.setVisible(true);
 		btnStore = new JButton("Store");
 		btnStore.setBounds(325,450,100,50);
-		btnCode = new JButton("Input Code");
-		btnCode.setBounds(500,100,100,100);
+	
 		lblQuestion = new JLabel ("What is you main focus for today?");
 		lblQuestion.setBounds(80,300,400,50);
 		lblQuestion.setFont(new Font("Serif", Font.BOLD,20));
@@ -107,6 +109,7 @@ JTextField txtAnswer;
 			btnQuestion.setForeground(Color.gray);
 		panAccount.add(btnQuestion);
 		panAccount.add(btnStore);
+		panAccount.add(btnCode);
 		panAccount.add(txtAnswer);
 		panAccount.add(btnDone);
 		
@@ -134,7 +137,16 @@ JTextField txtAnswer;
 			  
 		  });
 	
-		
+		  btnStore.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String lblCode = JOptionPane.showInputDialog(null, "What is the code?");
+				
+			}
+			  
+		  });
 		   btnQuestion.addActionListener(new ActionListener(){
 
 			@Override
@@ -156,7 +168,7 @@ JTextField txtAnswer;
 					panAccount.add(lblFocus);
 					txtAnswer.setVisible(false);
 					btnDone.setVisible(false);
-					GainPoints();			
+					gainPoints(1);			
 				}
 			
 			
@@ -196,10 +208,10 @@ JTextField txtAnswer;
 		  
 	}
 
-	 public void GainPoints(){
+	 public void gainPoints(int p){
 		 //add more to this method? maybe if they get blank amount of points...special reward?
-		 points = points + 1;
-		 JOptionPane.showMessageDialog(null, "You gained 1 point! Now your total number of points is " + points);
+		 points = points + p;
+		 JOptionPane.showMessageDialog(null, "You gained " + p + " point(s)! Now your total number of points is " + points);
 	 }
 	 
 	 

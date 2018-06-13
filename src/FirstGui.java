@@ -40,7 +40,7 @@ import java.util.Scanner;
 //have a class for gui things that extends JFrame
 //have a class for the first gui that will extends Account
 public class FirstGui extends JFrame{
-	//see why login isnt working
+	//see why loging isnt working
 	 boolean found;
 	JLabel lblImage;
 	String username,password,user1,pswrd1;

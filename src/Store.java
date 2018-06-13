@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 //code
@@ -22,7 +23,7 @@ public class Store extends Account implements ActionListener{
 	 String saltStr, realStr;
 	 Scanner y;
 	 boolean duplicate;
-	 JLabel code, displayCode;
+	 JLabel lblcode, lblDisplayCode;
 	public static final String CODEFILENAME = "C:\\Users\\Rhea\\filena.txt";
 	//String[] arrCode = new String[6];
 	//JLabel lblCode;
@@ -56,18 +57,24 @@ public class Store extends Account implements ActionListener{
 		btnCode.setBounds(100,100,100,100);
 		
 		btnBackground = new JButton("Unlock backgrounds");
-	panStore.add(btnCode);
+	    panStore.add(btnCode);
 		storeFrame.add(panStore);
 		accFrame.dispose();
 	}
 	
 	public void ButtonActions(){
 		btnCode.addActionListener(new ActionListener(){
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				getSaltString();
+				//if code is used more than once a day....
+				if((points-10)>=0){
+					price(10);
+					getSaltString();
+					JOptionPane.showMessageDialog(null,"Your code is " + saltStr);
+				}
+				
 				
 			}
 			
@@ -98,6 +105,13 @@ public class Store extends Account implements ActionListener{
        
 
 }
+
+	public void price (int p){
+		points = points - p;
+		JOptionPane.showMessageDialog(null,"That cost " + p + "points. You now have " + points + "points "); 
+		}
+		
+		
 	 public void save(){
 			BufferedWriter bw = null;
 			FileWriter fw = null;
@@ -184,12 +198,9 @@ public class Store extends Account implements ActionListener{
 		second.add(panStore);
 	*/	
 
-	
-	public boolean Code() {
-		
-		return false;
 
-	}
+
+	
 	public void creategui(){
 lblTest = new JLabel("Holaaa");
 			
