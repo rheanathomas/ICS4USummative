@@ -18,7 +18,8 @@ import javax.swing.JTextField;
 
 
 public class ToDo extends Account{
-	JFrame todoFrame;
+	//declare variables
+	  JFrame todoFrame;
 	 ArrayList<JLabel> label = new ArrayList<JLabel>(); 
 		JLabel image;
 		JLayeredPane lpanTodo = new JLayeredPane();
